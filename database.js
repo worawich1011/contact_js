@@ -1,11 +1,13 @@
 const mongoose = require('mongoose');
 
-const db = mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost:27017/admin')
-    .then(() => {
-        console.log('connect success')
-    })
-    .catch((err) => {
-        console.log('connect error -> ', err);
-    })
+const url = `mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`;
+const db = mongoose.connect(url);
 
+mongoose.connection.on('error',(err) => {
+    console.log(err);
+});
+
+mongoose.connection.once('open',() => {
+    console.log("DB Connecting Success");
+});
 module.exports = db;

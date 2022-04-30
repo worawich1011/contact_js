@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" type="text/css" href="indextest.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
     <title>Document</title>
     <script src="https://unpkg.com/vue@3"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -34,8 +34,7 @@
                 <div class="pop-cont">
                     <ul id="charactersList">
                         <li class="character" v-for="item in teachers">
-                            <h2 class="name">{{ item.name }}</h2> 
-                            <p class="house">{{ item }}</p>
+                            <h2 class="name">{{ item.name}} <br> Group : {{ item.group }}</h2> 
                             <img class="img" src=""></img>
                         </li>
                     </ul> 
