@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="IT.css">
     <title>Document</title>
     <script src="https://unpkg.com/vue@3"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -15,7 +15,7 @@
     <div id="app">
         <br>
     <div class="logo2"> 
-        <img src="FITM_LOGO.png" height="100">
+        <img src="imgs/FITM_LOGO.png" height="100">
         <h1 class="title"> Faculty of Industrial Technology and Management </h1>
     </div>
     <br>
@@ -47,7 +47,7 @@
             <div :class="{'hidden': !statusPopup}">
                 <div class="pop-up-original z-20">
                     <div class="pop-up-content">
-                        <img class="pop-img" stlye="width: 220px !important;" :src="
+                        <img style="width: 220px !important;" :src="
                             dataPopup.img 
                             || 
                             `https://thumbs.dreamstime.com/b/no-image-available-icon-flat-vector-no-image-available-icon-flat-vector-illustration-132482953.jpg`"
@@ -56,7 +56,7 @@
                             <p class="pop-name">
                                 {{ dataPopup.name }}
                             </p>
-                            <p class="pop-house">
+                            <p class="pop-email">
                                 {{ dataPopup.email }}
                             </p>
                         </div>

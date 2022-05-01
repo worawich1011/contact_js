@@ -8,7 +8,7 @@ searchBar.addEventListener('keyup', (e) => {
     const filteredCharacters = hpCharacters.filter((character) => {
         return (
             character.name.toLowerCase().includes(searchString) ||
-            character.house.toLowerCase().includes(searchString)
+            character.email.toLowerCase().includes(searchString)
         );
     });
     displayCharacters(filteredCharacters);
@@ -32,7 +32,7 @@ const displayCharacters = (characters) => {
             return `
             <li onclick="onPopup(this)" class="character">
                 <h2 class="name">${character.name}</h2> 
-                <p class="house">House: ${character.house}</p>
+                <p class="email">email: ${character.email}</p>
                 <img class="img" src="${character.image}"></img>
             </li>
         `;
@@ -49,16 +49,16 @@ var popupContainer = document.getElementsByClassName('pop-cont')[0],
 
 function onPopup(character) {
     let name = character.querySelector('.name').innerHTML;
-    let house = character.querySelector('.house').innerHTML;
+    let email = character.querySelector('.email').innerHTML;
     let img = character.querySelector('.img').src;
 
     document.querySelector('.pop-name').innerHTML = name;
-    document.querySelector('.pop-house').innerHTML = house;
+    document.querySelector('.pop-email').innerHTML = email;
     document.querySelector('.pop-img').src = img;
 
     if (popupBox.style.display === 'block') {
         popupBox.style.display = 'none';
-        
+
     } else {
         popupBox.style.display = 'block';
     }
