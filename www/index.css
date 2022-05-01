@@ -215,9 +215,23 @@ button{
     cursor: pointer;
     user-select: none;
 }
-.pop-cont:hover{
+.character:hover{
     color: #129fea;
     transition: .6s
+}
+.pop-up-original {
+    background-color: white;
+    padding: 13px 17px;
+    color: black;
+    font-weight: lighter;
+    border: 0.5px solid #bdbdbd;
+    border-radius: 8px;
+    position: absolute;
+    min-width: 500px;
+    height: 300px;
+    font-size: 20px;
+    top: 50%;
+    transform: translateX(50%) translateY(-50%);
 }
 .pop-up{
     background-color: white;
@@ -253,9 +267,8 @@ button{
 
 .pop-img{
     align-self: start;
-    max-height: 250px;
-    padding-right: 10px;
 }
+
 .pop-name{
     font-size: 20px;
 }

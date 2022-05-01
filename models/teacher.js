@@ -4,7 +4,8 @@ const teacherSchema = mongoose.Schema({
     name: String,
     email: String,
     nameTH: String,
-    group: String
+    group: String,
+    img: String
 });
 
 module.exports = mongoose.model('tb_teacher', teacherSchema);
