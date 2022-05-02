@@ -83,13 +83,13 @@
                 keywordSearch: ''
             }
         },
-
+        
         watch: {
             keywordSearch: function (valNew, valOld) {
                 if (valNew.length === 0) {
                     this.getTechers();
-                } else {
-                    this.onSearch();
+                } 
+                else {this.onSearch();
                 }
             }
         },

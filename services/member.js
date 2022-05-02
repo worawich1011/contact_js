@@ -13,3 +13,7 @@ exports.createmember = async (fname,lname,email,username,password) =>{
     });
     return await member.save();
 }
+
+exports.login = async (username, password) =>{
+    return await memberModel.findOne({username: username, password: password});
+}
