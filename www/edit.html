@@ -47,29 +47,9 @@
                     </ul> 
                 </div>
             </div>
-            <div :class="{'hidden': !statusPopup}">
-                <div class="pop-up-original z-20">
-                    <div class="pop-up-content">
-                        <img style="width: 220px !important;" :src="
-                            dataPopup.img 
-                            || 
-                            `https://thumbs.dreamstime.com/b/no-image-available-icon-flat-vector-no-image-available-icon-flat-vector-illustration-132482953.jpg`"
-                        >
-                        <div class="pop-body mt-24">
-                            <p class="pop-name">
-                                {{ dataPopup.name }}
-                            </p>
-                            <p class="pop-house">
-                                {{ dataPopup.email }}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div @click="statusPopup = !statusPopup" class="overlay w-full h-screen fixed bg-black opacity-40 z-10 left-0 top-0"></div>
-            </div>
+           
         </div> 
     </div>
-
 </body>
 </html>
 
