@@ -75,3 +75,7 @@ form.container{
     font-size: 20px;
     background-color: rgb(19, 238, 19);
 }
+
+.home{
+    border-radius: 0%;
+}

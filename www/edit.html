@@ -42,7 +42,8 @@
                         <li @click="onPopup(item)" class="teacher" v-for="item in teachers">
                             <h2 class="name">{{ item.name}} <br> Group : {{ item.group }}</h2> 
                             <img class="img" src=""></img> <br>
-                            <button type="button" name="submit" class="delete"> Delete </button>
+                            <input  v-model="name" type="text"     name="name"    class="inputregis"  placeholder="enter name for delete"    required>
+                            <button @click="deleteteacher()" type="button" name="submit" class="delete"> Delete </button>
                         </li>
                     </ul> 
                 </div>
@@ -63,7 +64,7 @@
                 teachers: [],
                 dataPopup: { name: '', email: '' },
                 statusPopup: false,
-                keywordSearch: ''
+                keywordSearch: '',
             }
         },
 
@@ -78,7 +79,6 @@
         },
 
         methods: {
-
             async onSearch() {
 
                 await axios.get(`http://localhost:5000/teacher/find/${this.keywordSearch}`)
@@ -111,6 +111,18 @@
                 this.statusPopup = true;
                 this.dataPopup = item;
             },
+            deleteteacher() {
+                axios.delete('http://localhost:5000/teacher/', {
+                    name: this.name
+                    
+                }).then(res=>{
+                    alert("Delete Success");
+                    window.location.href = 'edit.html';
+                }).catch(err =>{
+                    alert("Delete error");
+                    cosole.log(err);
+                })
+            }
         },
 
         async mounted() {

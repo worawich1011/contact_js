@@ -24,9 +24,9 @@ exports.createteacher = async(req,res) => {
 }
 
 exports.deleteTeacher = async (req,res) =>{
-    const id = req.params.id;
+    const name = req.params.name;
     try{
-        await teacherService.deleteTeacher(id);
+        await teacherService.deleteTeacher(name);
         res.json({
             status: true,
             message: "Remove Success"

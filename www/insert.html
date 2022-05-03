@@ -5,42 +5,75 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="insert.css" >
-
-
     <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+    
 </head>
-<body>
+<body id="app">
     
         <div class="logo2"> 
-            <img src="imgs/FITM_LOGO.png" height="100">
+            <a href="IT.html"><img src="imgs/FITM_LOGO.png" height="100"></a>
             <h1 class="title"> Faculty of Industrial Technology and Management </h1>
         </div><br>
 
-        <div class="bg3"> INFORMATION TECHNOLOGY (IT) / INFORMATION AND NETWORK ENGINEERING (INE)</a></div> <br> <br>
+        <div class="bg3" > INFORMATION TECHNOLOGY (IT) / INFORMATION AND NETWORK ENGINEERING (INE)</a></div> <br> <br>
         <h2> เทคโนโลยีสารสนเทศ (IT) / เทคโนโลยีเครือข่าย (INE)</h2> <br>
 
         <div class="bg2">
-            <form class="container"> 
+            <div class="container"> 
                 <div>
-                    <input  type="text" name="Name EG"  class="inputregis"  placeholder="Name (English)" required> <br>
-                    <input  type="text"   name="Name TH"    class="inputregis"  placeholder="Name (Thai)"   required> <br>
+                    <input  v-model="name"type="text" name="Name EG"  class="inputregis"  placeholder="Name (English)" required> <br>
+                    <input  v-model="nameTH"type="text"   name="Name TH"    class="inputregis"  placeholder="Name (Thai)"   required> <br>
 
-                    <input  type="text"  name="E-mail"   class="inputregis"  placeholder="E-mail"  required> <br>
-                    <input  type="text"     name="Group"    class="inputregis"  placeholder="Group"    required>  <br>  
+                    <input  v-model="email"type="text"  name="E-mail"   class="inputregis"  placeholder="E-mail"  required> <br>
+                    <input  v-model="group"type="text"     name="Group"    class="inputregis"  placeholder="Group"    required>  <br>  
                     
-                    <input type="file" name="upload" />
+                    <input v-model="image"type="file" name="upload" />
                 </div> <br> <br>
                 
                 <div>
-                    <button type="submit" name="submit" class="butregis"> <a style="text-decoration:none; color: white;"> Add  </a></button>     
+                    <button @click="insert()" type="button" name="submit" class="butregis">  Add  </button>     
                 </div> 
         
-            </form>
+            </div>
         </div>
 
 
 </body>
 </html>
+<script src="https://unpkg.com/vue@3"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    Vue.createApp({
+        data(){
+            return{
+                data:[],
+                name: '',
+                nameTH: '',
+                email: '',
+                group: '',
+                
+            }
+        },
+        methods:{
+            insert() {
+                axios.post('http://localhost:5000/teacher/', {
+                    name: this.name,
+                    nameTH: this.nameTH,
+                    email: this.email,
+                    group: this.group,
+                    image: this.image
+                }).then(res=>{
+                    alert("Insert Success");
+                    window.location.href = 'edit.html';
+                }).catch(err =>{
+                    alert("Insert Error");
+                    cosole.log(err);
+                })
+            },
+        }
+    }).mount('#app')
+</script>

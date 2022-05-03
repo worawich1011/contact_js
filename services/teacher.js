@@ -27,6 +27,6 @@ exports.createteacher = async (name,email,nameTH,group) =>{
     return await teacher.save();
 }
 
-exports.deleteTeacher = async(id) =>{
-    return await teacherModel.deleteOne({'_id' : id});
+exports.deleteTeacher = async(name) =>{
+    return await teacherModel.deleteOne({'name' : name});
 }

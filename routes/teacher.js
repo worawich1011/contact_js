@@ -5,7 +5,7 @@ const route = express.Router();
 
 route.get('/', controllersTecher.getteacher);
 route.post('/', controllersTecher.createteacher);
-route.delete('/:id',controllersTecher.deleteTeacher);
+route.delete('/:name',controllersTecher.deleteTeacher);
 
 route.get('/find/:keyword', async (req, res) => {
     
