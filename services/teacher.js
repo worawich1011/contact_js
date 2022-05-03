@@ -1,3 +1,4 @@
+const member = require('../models/member');
 const teacherModel = require('../models/teacher');
 
 
@@ -24,4 +25,8 @@ exports.createteacher = async (name,email,nameTH,group) =>{
         group: group
     });
     return await teacher.save();
+}
+
+exports.deleteTeacher = async(id) =>{
+    return await teacherModel.deleteOne({'_id' : id});
 }

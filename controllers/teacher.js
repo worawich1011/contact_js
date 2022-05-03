@@ -22,3 +22,20 @@ exports.createteacher = async(req,res) => {
         });
     }
 }
+
+exports.deleteTeacher = async (req,res) =>{
+    const id = req.params.id;
+    try{
+        await teacherService.deleteTeacher(id);
+        res.json({
+            status: true,
+            message: "Remove Success"
+        })
+
+    }catch{
+        res.status(500).json({
+            status: false,
+            message: "Error"
+        });
+    }
+}

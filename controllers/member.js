@@ -49,12 +49,3 @@ exports.createmember = async(req,res) => {
         });
     }
 }
-
-exports.deletemember = async (req,res) =>{
-    const id = req.param.id;
-    console.log(id );
-    res.json({
-        status: true,
-        message: "Remove success"
-    })
-}
